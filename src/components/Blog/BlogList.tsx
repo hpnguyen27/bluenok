@@ -25,9 +25,7 @@ const BlogLink = styled(Link)`
 
 const BlogList: React.FC = () => {
   const blogPosts = [
-    { slug: 'blog-post-1', title: 'Under Contruction' },
-    { slug: 'blog-post-2', title: 'Under Contruction' },
-    { slug: 'blog-post-3', title: 'Under Contruction' },
+    { slug: 'blog-post-1', title: 'Under construction 🚧' },
   ];
 
   return (
