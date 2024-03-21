@@ -1,0 +1,17 @@
+body {
+    background-color: #faf3ec;
+  }
+  
+  .App {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  main {
+    margin-top: 40px;
+  }
+  
+  .home {
+    max-width: 600px;
+    margin: 0 auto;
+  }

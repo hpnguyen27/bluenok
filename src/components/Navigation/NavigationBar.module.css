@@ -1,0 +1,60 @@
+/* NavigationBar.module.css */
+
+@font-face {
+  font-family: 'Palace Script MT';
+  src: url('../../assets/PALSCRI.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.navbar {
+  text-align: center;
+  padding: 10px 0; /* Adjust the padding as needed */
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px; /* Adjust the height as needed */
+
+}
+.logoImage {
+  width: 150px;
+  height: 150px;
+  margin: 0;
+  padding: 0;
+  padding-right: 8px;
+  padding-bottom: 20px;
+}
+
+.menu {
+  display: inline-block; /* Aligns the menu items in line */
+  gap: 20px; /* Adjust gap between menu items */
+  font-size: 1.1rem; /* Adjust menu font size as needed */
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #000; /* Adjust the color as needed */
+  margin: 0px; /* Adjust the margin for spacing between menu items */
+  padding: 65px; /* Adjust padding as needed */
+  font-family: 'Courier New';
+  &:hover {
+    text-decoration: underline;
+    
+  }
+}
+/* Media query for smaller screens */
+@media (max-width: 767px) {
+  .logo {
+    font-size: 3.5rem; /* Reduce logo size on smaller screens */
+  }
+  .menu {
+    gap: 10px; /* Reduce gap between menu items on smaller screens */
+    font-size: 1.2rem; /* Reduce menu font size on smaller screens */
+  }
+  .menu a {
+    padding: 20px; /* Reduce padding for menu items on smaller screens */
+  }
+}

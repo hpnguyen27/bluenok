@@ -1,0 +1,21 @@
+/* Home.module.css */
+.homeContainer {
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    padding: 50px;
+  }
+  
+  .homeParagraph {
+    display: inline-block;
+    text-align: center;
+    max-width: 70%;
+    line-height: 1.6;
+    font-size: 1.4rem;
+  }
+  
+  @media (max-width: 768px) {
+    .homeParagraph {
+      max-width: 100%;
+    }
+  }
+  
