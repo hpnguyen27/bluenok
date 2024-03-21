@@ -6,6 +6,7 @@ import BlogPost from './components/Blog/BlogPost';
 import About from './components/About/About';
 import NavigationBar from './components/Navigation/Navigation';
 import Home from './components/HomePage/Home';
+import { Analytics } from "@vercel/analytics/react"
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           {/* Define other Routes here as needed */}
         </Routes>
       </Router>
+      <Analytics />
     </div>
   );
 };
