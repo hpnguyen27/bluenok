@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './About.module.css';
+import signatureImage from '../../assets/signature.png';
 
 interface AboutProps {
   content?: string;
@@ -11,6 +12,7 @@ const About: React.FC<AboutProps> = ({ content }) => {
   return (
     <div className={styles.centeredContainer}>
       <p className={styles.styledParagraph}>{aboutContent}</p>
+      <img src={signatureImage} alt="Signature" className={styles.signatureImage} />
     </div>
   );
 };
