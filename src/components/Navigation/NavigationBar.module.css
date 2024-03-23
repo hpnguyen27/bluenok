@@ -8,15 +8,16 @@
 }
 .navbar {
   text-align: center;
-  padding: 10px 0; /* Adjust the padding as needed */
+  padding-top: 20px;
+  
 }
 
 .logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120px; /* Adjust the height as needed */
-
+  height: 120px;
+  margin-bottom: -30px; 
 }
 .logoImage {
   width: 150px;
@@ -24,7 +25,7 @@
   margin: 0;
   padding: 0;
   padding-right: 8px;
-  padding-bottom: 20px;
+  padding-bottom: 70px;
 }
 
 .menu {
@@ -42,8 +43,10 @@
   font-family: 'Courier New';
   &:hover {
     text-decoration: underline;
-    
   }
+  transition: all 0.5s ease;
+  padding: 10px 20px; /* Adjust padding for spacing around the menu item */
+  margin: 0 50px; /* Adjust margin for spacing between menu items */
 }
 /* Media query for smaller screens */
 @media (max-width: 767px) {

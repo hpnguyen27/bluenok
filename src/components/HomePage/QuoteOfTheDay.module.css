@@ -1,0 +1,14 @@
+.quoteContainer {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .quote {
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+  
+  .author {
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier;
+  }

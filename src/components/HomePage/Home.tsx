@@ -1,12 +1,14 @@
 import React from 'react';
 import styles from './Home.module.css';
+import QuoteOfTheDay from './QuoteOfTheDay';
 
 const Home: React.FC = () => {
-  const homeContent = process.env.REACT_APP_HOME_CONTENT;
+  const quoteOfTheDay = process.env.REACT_APP_QUOTE_OF_THE_DAY_INTRODUCTION
 
   return (
     <div className={styles.homeContainer}>
-      <p className={styles.homeParagraph}>{homeContent}</p>
+      <p className={styles.quoteOfTheDayTitle} >{quoteOfTheDay}</p>
+      <QuoteOfTheDay />
     </div>
   );
 };
