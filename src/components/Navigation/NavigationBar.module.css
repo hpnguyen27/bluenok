@@ -58,6 +58,7 @@
     font-size: 1.2rem; /* Reduce menu font size on smaller screens */
   }
   .menu a {
-    padding: 20px; /* Reduce padding for menu items on smaller screens */
+    padding: 10px 10px; /* Adjust padding for spacing around the menu item */
+    margin: 15px;
   }
 }

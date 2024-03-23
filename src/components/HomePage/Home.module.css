@@ -17,8 +17,9 @@
     .homeParagraph {
       max-width: 100%;
     }
-    .quoteOfTheDay {
+    .quoteOfTheDayTitle {
       font-size: 1.2rem;
+      max-width: 100%;
     }
   }
   

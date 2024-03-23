@@ -12,3 +12,17 @@
     font-size: 1.2rem;
     font-family: 'Courier New', Courier;
   }
+
+  @media (max-width: 768px) {
+  .quote {
+    display: inline-block;
+    text-align: center;
+    font-style: italic;
+    max-width: 120%; /* or any value greater than 100% */
+    font-size: 1.2rem;
+  }
+    .author {
+      font-size: 1.2rem;
+      font-family: 'Courier New', Courier;
+    }
+  }
