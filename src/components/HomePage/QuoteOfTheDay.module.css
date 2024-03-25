@@ -10,7 +10,7 @@
   
   .author {
     font-size: 1.2rem;
-    font-family: 'Courier New', Courier;
+    font-family: 'Courier New', sans-serif;
   }
 
   @media (max-width: 768px) {
@@ -23,6 +23,6 @@
   }
     .author {
       font-size: 1.2rem;
-      font-family: 'Courier New', Courier;
+      font-family: 'Courier New', sans-serif;
     }
   }
