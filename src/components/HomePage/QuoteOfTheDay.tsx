@@ -21,7 +21,7 @@ const QuoteOfTheDay: React.FC = () => {
 
   useEffect(() => {
     const fetchQuote = async () => {
-      const response = await axios.get(process.env.REACT_APP_QUOTE_API_URL || '');
+      const response = await axios.get(process.env.REACT_APP_QUOTE_API_URL ?? '');
       const { content, authorSlug } = response.data[0];
       const author = formatAuthorName(authorSlug);
       const dateFetched = new Date().toISOString().slice(0, 10);
