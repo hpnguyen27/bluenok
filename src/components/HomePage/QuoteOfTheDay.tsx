@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useCallback } from 'react';
+import axios, { AxiosError } from 'axios';
 import styles from './QuoteOfTheDay.module.css';
 
 interface Quote {
@@ -8,29 +8,47 @@ interface Quote {
   dateFetched: string;
 }
 
-const formatAuthorName = (authorSlug: string): string => {
-  return authorSlug
-    .split('-')
-    .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-};
+interface ApiResponse {
+  content: string;
+  originator: {
+    name: string;
+  };
+}
 
 const QuoteOfTheDay: React.FC = () => {
   const [quoteData, setQuoteData] = useState<Quote | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchQuote = async () => {
-      const response = await axios.get(process.env.REACT_APP_QUOTE_API_URL ?? '');
-      const { content, authorSlug } = response.data[0];
-      const author = formatAuthorName(authorSlug);
+  const fetchQuote = useCallback(async (): Promise<void> => {
+    try {
+      const response = await axios.get<ApiResponse>(process.env.REACT_APP_QUOTE_API_URL!, {
+        headers: {
+          'x-rapidapi-host': process.env.REACT_APP_RAPIDAPI_HOST,
+          'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY
+        },
+        params: { language_code: 'en' }
+      });
+
+      const { content, originator } = response.data;
+      const author = originator.name;
       const dateFetched = new Date().toISOString().slice(0, 10);
       const quoteInfo: Quote = { content, author, dateFetched };
+      
       localStorage.setItem('quoteData', JSON.stringify(quoteInfo));
       setQuoteData(quoteInfo);
       setIsLoading(false);
-    };
+    } catch (error) {
+      const errorMessage = error instanceof AxiosError
+        ? `Network error: ${error.message}`
+        : 'An unexpected error occurred';
+      setError(errorMessage);
+      setIsLoading(false);
+      console.error('Error fetching quote:', error);
+    }
+  }, []);
 
+  useEffect(() => {
     const savedQuote = localStorage.getItem('quoteData');
     const today = new Date().toISOString().slice(0, 10);
 
@@ -45,10 +63,14 @@ const QuoteOfTheDay: React.FC = () => {
     } else {
       fetchQuote();
     }
-  }, []);
+  }, [fetchQuote]);
 
   if (isLoading) {
-    return <p>Loading quote...</p>;
+    return <p className={styles.loading}>Loading quote...</p>;
+  }
+
+  if (error) {
+    return <p className={styles.error}>Error: {error}</p>;
   }
 
   return (
