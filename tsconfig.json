@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -23,6 +19,13 @@
   "include": [
     "src",
     "src/**/*.mp4",
-    "src/**/*",
-  ]
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/server.ts"
+  ],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
 }

@@ -7,7 +7,7 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ content }) => {
-  const aboutContent = content || process.env.REACT_APP_ABOUT_CONTENT;
+  const aboutContent = content ?? process.env.REACT_APP_ABOUT_CONTENT;
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

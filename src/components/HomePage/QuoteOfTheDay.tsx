@@ -22,19 +22,11 @@ const QuoteOfTheDay: React.FC = () => {
 
   const fetchQuote = useCallback(async (): Promise<void> => {
     try {
-      const response = await axios.get<ApiResponse>(process.env.REACT_APP_QUOTE_API_URL!, {
-        headers: {
-          'x-rapidapi-host': process.env.REACT_APP_RAPIDAPI_HOST,
-          'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY
-        },
-        params: { language_code: 'en' }
-      });
-
+      const response = await axios.get<ApiResponse>('/api/quote');
       const { content, originator } = response.data;
       const author = originator.name;
       const dateFetched = new Date().toISOString().slice(0, 10);
       const quoteInfo: Quote = { content, author, dateFetched };
-      
       localStorage.setItem('quoteData', JSON.stringify(quoteInfo));
       setQuoteData(quoteInfo);
       setIsLoading(false);
