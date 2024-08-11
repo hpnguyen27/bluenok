@@ -4,25 +4,28 @@
   }
   
   .quote {
-    font-size: 1.2rem;
-    font-style: italic;
+    font-size: 1.1rem;
+    font-style: normal;
   }
   
   .author {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family: 'Courier New', sans-serif;
+    margin-top: 40px;
   }
 
   @media (max-width: 768px) {
   .quote {
     display: inline-block;
     text-align: center;
-    font-style: italic;
+    font-style: normal;
     max-width: 120%; /* or any value greater than 100% */
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
     .author {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-family: 'Courier New', sans-serif;
+      margin-top: 40px;
+
     }
   }
