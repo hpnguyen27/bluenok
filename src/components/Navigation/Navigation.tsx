@@ -35,9 +35,9 @@ const NavigationBar: React.FC = () => {
         <img src={logo} alt="Logo" className={styles.logoImage} />
       </Link>
       <div ref={menuRef} className={`${styles.menu} ${isOpen ? styles.open : ''}`}>
-        <a href="/about">About</a>
-        <a href="/blog">Blog</a>
-        <a href="/contact">Contact</a>
+        <a href="/about">About Me</a>
+        <a href="/blog">My Blog</a>
+        <a href="/contact">Contact Me</a>
       </div>
       <div
         ref={burgerRef}

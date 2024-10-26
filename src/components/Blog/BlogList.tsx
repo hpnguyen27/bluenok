@@ -16,7 +16,7 @@ const BlogLink = styled(Link)`
   margin-bottom: 10px;
   color: #333;
   text-decoration: none;
-  font-family: 'Courier New';
+  font-family: "Optima", Helvetica, sans-serif;
   font-size: 1.1rem;
   &:hover {
     text-decoration: underline;
@@ -25,7 +25,7 @@ const BlogLink = styled(Link)`
 
 const BlogList: React.FC = () => {
   const blogPosts = [
-    { slug: 'blog-post-1', title: 'Under construction 🚧' },
+    { slug: 'blog-post-1', title: 'Under Construction 🚧' },
   ];
 
   return (
