@@ -1,7 +1,6 @@
 .centeredContainer {
   text-align: center;
   font-family: "Optima",Helvetica,sans-serif;
-
 }
 
 .styledParagraph {
@@ -54,4 +53,10 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+/* Prevent unnecessary body scroll */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Ensures no scrollbar appears unless needed */
 }
