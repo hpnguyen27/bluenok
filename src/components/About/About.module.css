@@ -54,9 +54,3 @@
     transform: translateX(0);
   }
 }
-/* Prevent unnecessary body scroll */
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden; /* Ensures no scrollbar appears unless needed */
-}
