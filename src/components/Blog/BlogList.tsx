@@ -25,7 +25,10 @@ const BlogLink = styled(Link)`
 
 const BlogList: React.FC = () => {
   const blogPosts = [
-    { slug: 'blog-post-1', title: 'Under Construction 🚧' },
+    { 
+      slug: 'deepseek-ai', 
+      title: "DeepSeek - The AI Revolution"
+    },
   ];
 
   return (
