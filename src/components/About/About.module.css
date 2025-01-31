@@ -1,6 +1,7 @@
 .centeredContainer {
   text-align: center;
   font-family: "Optima",Helvetica,sans-serif;
+  height: 10vh;
 }
 
 .styledParagraph {
@@ -38,13 +39,13 @@
   }
 }
 
-.signatureImageAnimate {
+/* .signatureImageAnimate {
   opacity: 0;
   transform: translateX(100%);
   animation: slideIn 0.5s ease forwards;
-}
+} */
 
-@keyframes slideIn {
+/* @keyframes slideIn {
   0% {
     opacity: 0;
     transform: translateX(100%);
@@ -53,4 +54,4 @@
     opacity: 1;
     transform: translateX(0);
   }
-}
+} */
