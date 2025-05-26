@@ -3,45 +3,60 @@ import styles from './About.module.css';
 import signatureImage from '../../assets/signature.png';
 
 const About: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const signatureRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const signatureElement = document.querySelector(`.${styles.signatureImage}`);
-      if (signatureElement && containerRef.current) {
-        const scrollPosition = window.innerHeight + window.scrollY;
-        const signaturePosition = signatureElement.getBoundingClientRect().top + window.scrollY;
-        if (scrollPosition >= signaturePosition && containerRef.current.scrollHeight > window.innerHeight) {
-          signatureElement.classList.add(styles.signatureImageAnimate);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(styles.fadeInUp);
         }
-      }
-    };
+      });
+    }, { threshold: 0.3 });
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    if (signatureRef.current) {
+      observer.observe(signatureRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div ref={containerRef} className={styles.centeredContainer}>
-      <p className={styles.centeredText}>
-        <strong>My Judgement-Free Zone!</strong>  
-        <br />
-        (AKA: A Place Where I Say Things and Pretend No One Judges Me)  
-        <br /><br />
-        This is where I spill my thoughts on business, technology, and whatever else crosses my mind—without fear of judgment (or at least, without <em>me</em> seeing it).  
-        <br /><br />
-        Feel free to read, nod, forget everything by tomorrow, or overanalyze it if you’ve got time. No pressure—I won’t know either way.  
-        <br /><br />
-        It’s also a place where you can follow my journey… or not. Honestly, I respect your right to not care.  
-        <br /><br />
-        <strong>But guess what? IF YOU’RE HERE.</strong>  
-        <br />
-        So might as well enjoy my short stories. Or long ones. It all depends on your definition of “long.”  
-      </p>
-      <img src={signatureImage} alt="Signature" className={styles.signatureImage} />
-    </div>
+    <section className={styles.aboutSection}>
+      <div className={styles.contentWrapper}>
+        <div className={styles.heroSection}>
+          <h1 className={styles.mainTitle}>My Judgement-Free Zone!</h1>
+          <p className={styles.subtitle}>
+            (AKA: A Place Where I Say Things and Pretend No One Judges Me)
+          </p>
+        </div>
+        
+        <div className={styles.mainContent}>
+          <div className={styles.introBlock}>
+            <p className={styles.introText}>
+              This is where I spill my thoughts on business, technology, and whatever else crosses my mind—without fear of judgment. Feel free to read, nod, forget everything by tomorrow, or overanalyze it. No pressure—I won't know either way.
+            </p>
+            
+            <p className={styles.highlightText}>
+              <strong>But guess what? If you're here...</strong>
+            </p>
+            
+            <p className={styles.subText}>
+              So might as well enjoy my stories. Short or long—depends on your definition.
+            </p>
+          </div>
+        </div>
+        
+        <div className={styles.signatureSection}>
+          <img 
+            ref={signatureRef}
+            src={signatureImage} 
+            alt="Personal signature" 
+            className={styles.signatureImage}
+          />
+        </div>
+      </div>
+    </section>
   );
 };
 

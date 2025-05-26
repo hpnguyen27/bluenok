@@ -1,30 +1,74 @@
 .contactContainer {
-    text-align: center;
-    font-family: "Optima",Helvetica,sans-serif;
-    padding: 50px;
-  }
-  
+  text-align: center;
+  font-family: "Optima",Helvetica,sans-serif;
+  padding: 50px;
+}
+
+.contactText {
+  display: inline-block;
+  text-align: center;
+  max-width: 70%;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
   .contactText {
-    display: inline-block;
-    text-align: center;
-    max-width: 70%;
-    line-height: 1.6;
-    font-size: 1.1rem;
+    max-width: 100%;
   }
-  
-  @media (max-width: 768px) {
-    .contactText {
-      max-width: 100%;
-    }
-  }
-  
-  .iconContainer {
-    margin-top: 20px;
-  }
-  
-  .icon {
-    width: 40px;
-    height: 40px;
-    margin: 0 10px;
+}
+
+.iconContainer {
+  margin-top: 20px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(152, 84, 2, 0.05);
+  border: 1px solid rgba(152, 84, 2, 0.1);
+  color: #985402;
+}
+.iconLink, .iconButton {
+    background: none;
+    border: none;
+    padding: 0;
     cursor: pointer;
-  }
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linkedinIcon {
+    color: #0077b5; /* LinkedIn blue */
+}
+
+.emailIcon {
+    color: #d44638; /* Email red */
+}
+
+/* Dark mode Font Awesome styles */
+:global(.dark-mode) .linkedinIcon {
+    color: #4a9eff; /* Lighter LinkedIn blue for dark mode */
+}
+
+:global(.dark-mode) .emailIcon {
+    color: #ff6b5a; /* Lighter email red for dark mode */
+}
+
+:global(.dark-mode) .icon {
+    background: rgba(152, 84, 2, 0.15);
+    border-color: rgba(152, 84, 2, 0.25);
+}
+
+:global(.dark-mode) .icon:hover {
+    background: rgba(152, 84, 2, 0.25);
+    border-color: rgba(152, 84, 2, 0.4);
+    box-shadow: 0 6px 20px rgba(152, 84, 2, 0.3);
+    transform: scale(1.1);
+}

@@ -1,7 +1,9 @@
+/* filepath: /Users/nin/Desktop/BlueNok/bluenok/src/components/Contact/Contact.tsx */
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import styles from './Contact.module.css';
-import linkedinIcon from '../../assets/linkedin.png';
-import emailIcon from '../../assets/mail.png';
 
 const Contact: React.FC = () => {
   const linkedinUrl = process.env.REACT_APP_LINKEDIN_URL;
@@ -15,15 +17,12 @@ const Contact: React.FC = () => {
     <div className={styles.contactContainer}>
       <p className={styles.contactText}>Feel free to contact me at:</p>
       <div className={styles.iconContainer}>
-        <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-          <img src={linkedinIcon} alt="LinkedIn" className={styles.icon} />
+        <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+          <FontAwesomeIcon icon={faLinkedin} className={`${styles.icon} ${styles.linkedinIcon}`} />
         </a>
-        <img
-          src={emailIcon}
-          alt="Email"
-          className={styles.icon}
-          onClick={handleEmailClick}
-        />
+        <button onClick={handleEmailClick} className={styles.iconButton}>
+          <FontAwesomeIcon icon={faEnvelope} className={`${styles.icon} ${styles.emailIcon}`} />
+        </button>
       </div>
     </div>
   );

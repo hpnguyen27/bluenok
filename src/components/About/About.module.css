@@ -1,57 +1,206 @@
-.centeredContainer {
-  text-align: center;
-  font-family: "Optima",Helvetica,sans-serif;
-  height: 10vh;
+.aboutSection {
+  font-family: "Optima", Helvetica, sans-serif;
+  height: calc(100vh - 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: inherit;
+  overflow: hidden;
+  position: relative;
 }
 
-.styledParagraph {
-  display: inline-block;
+/* Add subtle background pattern */
+.aboutSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.contentWrapper {
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero Section with better hierarchy */
+.heroSection {
   text-align: center;
-  max-width: 70%;
-  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.mainTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: inherit;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.subtitle {
   font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 0;
+  opacity: 0.7;
+  font-weight: 300;
+  animation: fadeInDown 0.8s ease-out 0.2s both;
 }
-@media (min-width: 769px) {
-  .centeredContainer {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 100px 20px;
-  }
+
+/* Single column layout with signature integration */
+.mainContent {
+  max-width: 650px;
+  margin: 0 auto;
 }
-@media (max-width: 768px) {
-  .styledParagraph {
-    max-width: 100vw;
-    font-size: 1.2rem;
-  }
+
+.introBlock {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  position: relative;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.introBlock::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: 16px 16px 0 0;
+}
+
+.introText {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: inherit;
+}
+
+.highlightText {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: inherit;
+  margin-bottom: 1rem;
+}
+
+.subText {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Signature as integrated element */
+.signatureSection {
+  text-align: center;
+  margin-top: 2.5rem;
+  animation: fadeInUp 0.6s ease-out 0.6s both;
 }
 
 .signatureImage {
-  display: block;
-  margin: 0 auto;
-  max-width: 300px;
+  max-width: 280px;
   height: auto;
-}
-
-@media (max-width: 768px) {
-  .signatureImage {
-    max-width: 250px;
-  }
-}
-
-/* .signatureImageAnimate {
+  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.15));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
-  transform: translateX(100%);
-  animation: slideIn 0.5s ease forwards;
-} */
+  transform: translateY(30px) scale(0.95);
+}
 
-/* @keyframes slideIn {
-  0% {
+.signatureImage:hover {
+  transform: translateY(-5px) scale(1.02);
+  filter: drop-shadow(0 12px 35px rgba(0, 0, 0, 0.2));
+}
+
+/* Animation classes */
+.fadeInUp {
+  animation: fadeInUpSignature 0.8s ease-out forwards;
+}
+
+/* Enhanced keyframes */
+@keyframes fadeInDown {
+  from {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateY(-30px);
   }
-  100% {
+  to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
-} */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUpSignature {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 1.5rem 1rem;
+  }
+  
+  .mainTitle {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .introBlock {
+    padding: 1.5rem;
+  }
+  
+  .introText {
+    font-size: 1rem;
+  }
+  
+  .signatureImage {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainTitle {
+    font-size: 1.8rem;
+  }
+  
+  .introBlock {
+    padding: 1.2rem;
+  }
+  
+  .signatureImage {
+    max-width: 180px;
+  }
+}

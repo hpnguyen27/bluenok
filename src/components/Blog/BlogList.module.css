@@ -1,0 +1,98 @@
+.container {
+  font-family: "Optima", Helvetica, sans-serif;
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: calc(100vh - 200px);
+  color: var(--text-color, #333333);
+}
+
+.blogList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 1rem; /* Add some top margin since header is removed */
+}
+
+.blogLink {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.blogLink:hover {
+  transform: translateX(8px);
+}
+
+.blogCard {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--card-border, rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+}
+
+.blogCard:last-child {
+  border-bottom: none;
+}
+
+.blogCard:hover {
+  padding-left: 1rem;
+}
+
+.blogTitle {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-color, #333333);
+  line-height: 1.3;
+}
+
+.readMore {
+  color: var(--link-color, #985402);
+  font-weight: 400;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.blogCard:hover .readMore {
+  color: var(--link-hover-color, #a75d04);
+  opacity: 1;
+}
+
+/* Dark mode adjustments */
+:global(.dark-mode) .blogCard {
+  border-bottom-color: var(--card-border, rgba(255, 255, 255, 0.1));
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .blogCard {
+    padding: 1rem 0;
+  }
+  
+  .blogTitle {
+    font-size: 1.2rem;
+  }
+  
+  .readMore {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .blogCard {
+    padding: 0.8rem 0;
+  }
+  
+  .blogTitle {
+    font-size: 1.1rem;
+  }
+}

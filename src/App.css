@@ -1,10 +1,34 @@
-body {
-    background-color: #f7f7f7;
+:root {
+    --bg-color: #f7f7f7;
+    --text-color: #333333;
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(255, 255, 255, 0.15);
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-border: rgba(152, 84, 2, 0.08);
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(26, 26, 26, 0.95);
+    --nav-border: rgba(152, 84, 2, 0.2);
   }
   
   .App {
     text-align: center;
     padding: 20px;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
   }
   
   main {

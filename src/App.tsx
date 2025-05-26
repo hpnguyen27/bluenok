@@ -8,22 +8,25 @@ import NavigationBar from './components/Navigation/Navigation';
 import Home from './components/HomePage/Home';
 import { Analytics } from "@vercel/analytics/react"
 import Contact from './components/Contact/Contact';
+import { DarkModeProvider } from './contexts/DarkModeContext';
+
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <Router>
-        <NavigationBar />
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/blog" element={<BlogList />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/contact" element={<Contact />} />
-          {/* Define other Routes here as needed */}
-        </Routes>
-      </Router>
-      <Analytics />
-    </div>
+    <DarkModeProvider>
+      <div className="App">
+        <Router>
+          <NavigationBar />
+          <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/blog" element={<BlogList />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Router>
+        <Analytics />
+      </div>
+    </DarkModeProvider>
   );
 };
 
